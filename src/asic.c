@@ -613,7 +613,9 @@ static void capture(struct options opt)
 	}
 
 	rc = ASIGetROIFormat(opt.o_cam_id, &opt.o_width, &opt.o_height, &opt.o_binning, &opt.o_img_type);
-	C_DEBUG("[rc:%d, id:%d] ASIGetROIFormat", rc, opt.o_cam_id);
+	C_DEBUG("[rc:%d, id:%d, width:%d, height:%d, binning:%dx%d, type:%s] "
+		"ASIGetROIFormat", rc, opt.o_cam_id, opt.o_width, opt.o_height,
+		opt.o_binning, opt.o_binning, IMG_TYPE[opt.o_img_type]);
 	if (rc) {
 		ASI_C_ERROR(rc, "ASIGetROIFormat");
 		return;
